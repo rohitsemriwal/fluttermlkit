@@ -72,25 +72,28 @@ class _HomePageState extends State<HomePage> {
                   showPhotoOptions();
                 },
                 padding: EdgeInsets.all(0),
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  alignment: Alignment.center,
-                  color: Colors.grey[300],
-                  child: Builder(
-                    builder: (context) {
-                      if(selectedImage != null) {
-                        return Image.file(
-                          selectedImage!,
-                          height: 200,
-                          width: 200,
-                          fit: BoxFit.cover,
-                        );
-                      }
-                      else {
-                        return Text("Select Image");
-                      }
-                    },
+                child: Hero(
+                  tag: "main_image",
+                  child: Container(
+                    height: 200,
+                    width: 200,
+                    alignment: Alignment.center,
+                    color: Colors.grey[300],
+                    child: Builder(
+                      builder: (context) {
+                        if(selectedImage != null) {
+                          return Image.file(
+                            selectedImage!,
+                            height: 200,
+                            width: 200,
+                            fit: BoxFit.cover,
+                          );
+                        }
+                        else {
+                          return Text("Select Image");
+                        }
+                      },
+                    ),
                   ),
                 ),
               ),
